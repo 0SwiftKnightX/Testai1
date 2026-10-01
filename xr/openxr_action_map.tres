@@ -1,0 +1,110 @@
+[gd_resource type="OpenXRActionMap" format=3]
+
+[sub_resource type="OpenXRAction" id="Action_trigger"]
+resource_name = "trigger"
+localized_name = "Trigger"
+toplevel_paths = PackedStringArray("/user/hand/left", "/user/hand/right")
+
+[sub_resource type="OpenXRAction" id="Action_trigger_click"]
+resource_name = "trigger_click"
+localized_name = "Trigger Click"
+action_type = 0
+toplevel_paths = PackedStringArray("/user/hand/left", "/user/hand/right")
+
+[sub_resource type="OpenXRAction" id="Action_grip"]
+resource_name = "grip"
+localized_name = "Grip"
+toplevel_paths = PackedStringArray("/user/hand/left", "/user/hand/right")
+
+[sub_resource type="OpenXRAction" id="Action_primary"]
+resource_name = "primary"
+localized_name = "Primary Thumbstick"
+action_type = 2
+toplevel_paths = PackedStringArray("/user/hand/left", "/user/hand/right")
+
+[sub_resource type="OpenXRAction" id="Action_primary_click"]
+resource_name = "primary_click"
+localized_name = "Primary Thumbstick Click"
+action_type = 0
+toplevel_paths = PackedStringArray("/user/hand/left", "/user/hand/right")
+
+[sub_resource type="OpenXRAction" id="Action_menu"]
+resource_name = "menu_button"
+localized_name = "Menu Button"
+action_type = 0
+toplevel_paths = PackedStringArray("/user/hand/left", "/user/hand/right")
+
+[sub_resource type="OpenXRAction" id="Action_haptic"]
+resource_name = "haptic"
+localized_name = "Haptic"
+action_type = 4
+toplevel_paths = PackedStringArray("/user/hand/left", "/user/hand/right")
+
+[sub_resource type="OpenXRActionSet" id="ActionSet_main"]
+resource_name = "testai1"
+localized_name = "TESTAI1"
+actions = [SubResource("Action_trigger"), SubResource("Action_trigger_click"), SubResource("Action_grip"), SubResource("Action_primary"), SubResource("Action_primary_click"), SubResource("Action_menu"), SubResource("Action_haptic")]
+
+[sub_resource type="OpenXRIPBinding" id="B_trigger_l"]
+action = SubResource("Action_trigger")
+binding_path = "/user/hand/left/input/trigger/value"
+
+[sub_resource type="OpenXRIPBinding" id="B_trigger_r"]
+action = SubResource("Action_trigger")
+binding_path = "/user/hand/right/input/trigger/value"
+
+[sub_resource type="OpenXRIPBinding" id="B_trigger_click_l"]
+action = SubResource("Action_trigger_click")
+binding_path = "/user/hand/left/input/trigger/click"
+
+[sub_resource type="OpenXRIPBinding" id="B_trigger_click_r"]
+action = SubResource("Action_trigger_click")
+binding_path = "/user/hand/right/input/trigger/click"
+
+[sub_resource type="OpenXRIPBinding" id="B_grip_l"]
+action = SubResource("Action_grip")
+binding_path = "/user/hand/left/input/squeeze/value"
+
+[sub_resource type="OpenXRIPBinding" id="B_grip_r"]
+action = SubResource("Action_grip")
+binding_path = "/user/hand/right/input/squeeze/value"
+
+[sub_resource type="OpenXRIPBinding" id="B_primary_l"]
+action = SubResource("Action_primary")
+binding_path = "/user/hand/left/input/thumbstick"
+
+[sub_resource type="OpenXRIPBinding" id="B_primary_r"]
+action = SubResource("Action_primary")
+binding_path = "/user/hand/right/input/thumbstick"
+
+[sub_resource type="OpenXRIPBinding" id="B_primary_click_l"]
+action = SubResource("Action_primary_click")
+binding_path = "/user/hand/left/input/thumbstick/click"
+
+[sub_resource type="OpenXRIPBinding" id="B_primary_click_r"]
+action = SubResource("Action_primary_click")
+binding_path = "/user/hand/right/input/thumbstick/click"
+
+[sub_resource type="OpenXRIPBinding" id="B_menu_l"]
+action = SubResource("Action_menu")
+binding_path = "/user/hand/left/input/menu/click"
+
+[sub_resource type="OpenXRIPBinding" id="B_menu_r"]
+action = SubResource("Action_menu")
+binding_path = "/user/hand/right/input/system/click"
+
+[sub_resource type="OpenXRIPBinding" id="B_haptic_l"]
+action = SubResource("Action_haptic")
+binding_path = "/user/hand/left/output/haptic"
+
+[sub_resource type="OpenXRIPBinding" id="B_haptic_r"]
+action = SubResource("Action_haptic")
+binding_path = "/user/hand/right/output/haptic"
+
+[sub_resource type="OpenXRInteractionProfile" id="Profile_oculus_touch"]
+interaction_profile_path = "/interaction_profiles/oculus/touch_controller"
+bindings = [SubResource("B_trigger_l"), SubResource("B_trigger_r"), SubResource("B_trigger_click_l"), SubResource("B_trigger_click_r"), SubResource("B_grip_l"), SubResource("B_grip_r"), SubResource("B_primary_l"), SubResource("B_primary_r"), SubResource("B_primary_click_l"), SubResource("B_primary_click_r"), SubResource("B_menu_l"), SubResource("B_menu_r"), SubResource("B_haptic_l"), SubResource("B_haptic_r")]
+
+[resource]
+action_sets = [SubResource("ActionSet_main")]
+interaction_profiles = [SubResource("Profile_oculus_touch")]
