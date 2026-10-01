@@ -25,10 +25,13 @@ func _process_hand(hand: XRController3D, left: bool) -> void:
             _held_left = held
         else:
             _held_right = held
+        if held:
+            hand.trigger_haptic_pulse("haptic", 0.0, 0.55, 0.08, 0.0)
     elif not pressed and held != null:
         held.freeze = false
         held.linear_velocity = Vector3.ZERO
         held.angular_velocity = Vector3.ZERO
+        hand.trigger_haptic_pulse("haptic", 0.0, 0.35, 0.05, 0.0)
         if left:
             _held_left = null
         else:
