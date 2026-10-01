@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/xr_player.gd" id="1"]
+
+[sub_resource type="CapsuleShape3D" id="Capsule"]
+radius = 0.3
+height = 1.7
+
+[sub_resource type="StandardMaterial3D" id="HandMat"]
+albedo_color = Color(0.2, 0.7, 1, 1)
+emission_enabled = true
+emission = Color(0.03, 0.15, 0.3, 1)
+emission_energy_multiplier = 1.5
+
+[sub_resource type="SphereMesh" id="HandMesh"]
+radius = 0.07
+height = 0.14
+
+[node name="XRPlayer" type="CharacterBody3D"]
+script = ExtResource("1")
+collision_layer = 8
+collision_mask = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+position = Vector3(0, 0.85, 0)
+shape = SubResource("Capsule")
+
+[node name="XROrigin3D" type="XROrigin3D" parent="."]
+
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
+tracker = &"head"
+current = true
+near = 0.02
+far = 100.0
+
+[node name="LeftHand" type="XRController3D" parent="XROrigin3D"]
+tracker = &"left_hand"
+pose = &"grip"
+show_when_tracked = true
+
+[node name="LeftVisual" type="MeshInstance3D" parent="XROrigin3D/LeftHand"]
+mesh = SubResource("HandMesh")
+material_override = SubResource("HandMat")
+
+[node name="RightHand" type="XRController3D" parent="XROrigin3D"]
+tracker = &"right_hand"
+pose = &"grip"
+show_when_tracked = true
+
+[node name="RightVisual" type="MeshInstance3D" parent="XROrigin3D/RightHand"]
+mesh = SubResource("HandMesh")
+material_override = SubResource("HandMat")
