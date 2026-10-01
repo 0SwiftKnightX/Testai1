@@ -8,7 +8,7 @@ config_version=5
 
 config/name="TESTAI1 XR Foundation"
 run/main_scene="res://scenes/main.tscn"
-config/features=PackedStringArray("4.7", "GL Compatibility")
+config/features=PackedStringArray("4.7", "Mobile")
 
 [display]
 
@@ -23,8 +23,8 @@ common/physics_ticks_per_second=90
 
 [rendering]
 
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"
+renderer/rendering_method="mobile"
+renderer/rendering_method.mobile="mobile"
 textures/vram_compression/import_etc2_astc=true
 environment/defaults/default_clear_color=Color(0.035, 0.045, 0.06, 1)
 
