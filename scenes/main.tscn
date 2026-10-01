@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3]
+[gd_scene load_steps=15 format=3]
 
 [ext_resource type="Script" path="res://scripts/xr_boot.gd" id="1"]
 [ext_resource type="PackedScene" path="res://scenes/xr_player.tscn" id="2"]
 [ext_resource type="Script" path="res://scripts/xr_interaction.gd" id="3"]
 [ext_resource type="Script" path="res://scripts/foundation_diagnostics.gd" id="4"]
 [ext_resource type="PackedScene" path="res://scenes/grabbable.tscn" id="5"]
+[ext_resource type="Script" path="res://scripts/xr_capabilities.gd" id="6"]
 
 [sub_resource type="Environment" id="Environment"]
 background_mode = 1
@@ -47,6 +48,9 @@ size = Vector3(2.5, 0.04, 0.04)
 
 [node name="XRBoot" type="Node" parent="."]
 script = ExtResource("1")
+
+[node name="XRCapabilities" type="Node" parent="."]
+script = ExtResource("6")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment")
