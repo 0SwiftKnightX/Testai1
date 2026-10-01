@@ -1,0 +1,51 @@
+; Engine configuration file.
+; TESTAI1 XR Foundation
+; Godot 4.7.2 / Meta Quest 3S / Android OpenXR
+
+config_version=5
+
+[application]
+
+config/name="TESTAI1 XR Foundation"
+run/main_scene="res://scenes/main.tscn"
+config/features=PackedStringArray("4.7", "GL Compatibility")
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="canvas_items"
+
+[physics]
+
+common/physics_ticks_per_second=90
+3d/default_gravity=9.8
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
+environment/defaults/default_clear_color=Color(0.035, 0.045, 0.06, 1)
+
+[xr]
+
+openxr/enabled=true
+openxr/default_action_map="res://xr/openxr_action_map.tres"
+openxr/form_factor=0
+openxr/view_configuration=1
+openxr/reference_space=1
+openxr/startup_alert=true
+openxr/extensions/hand_tracking=true
+openxr/extensions/hand_interaction_profile=true
+openxr/foveation_level=2
+openxr/foveation_dynamic=true
+shaders/enabled=true
+
+[layer_names]
+
+3d_physics/layer_1="World"
+3d_physics/layer_2="Dynamic"
+3d_physics/layer_3="Interactable"
+3d_physics/layer_20="Player"
+3d_physics/layer_21="Pointer"
